@@ -1,4 +1,4 @@
-# Spirngboot项目开发脚手架
+# Spirngboot项目开发脚手架食用指南
 
 @author wzf
 

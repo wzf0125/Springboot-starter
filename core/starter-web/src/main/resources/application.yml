@@ -1,0 +1,15 @@
+# 自定义配置默认配置 最好在其他项目中覆盖而不是在这里改
+quanta:
+  web:
+    exclude-path:
+      - /static/**
+#      - /common/login
+#      - /druid/login.html # druid连接池面板
+#      - /swagger-ui.html # swagger面板
+#      - /swagger-resources/** # swagger面板
+#      - /v2/**/ # swagger面板
+#      - /webjars/** # swagger面板
+    interceptor-path:
+      - /**
+  system:
+    debug: false

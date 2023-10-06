@@ -1,0 +1,33 @@
+# MyBatis-Plus 配置
+mybatis-plus:
+  # mapper xml文件路径
+  mapper-locations: classpath*:/mapper*/**/*.xml
+  # 实体扫描路径，多个路径用,或者;分割
+  type-aliases-package: org.quanta.**.entity
+  configuration:
+    # 字段下划线驼峰映射
+    map-underscore-to-camel-case: true
+    # 是否开启 MyBatis 二级缓存，默认为 true
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+  global-config:
+    db-config:
+      # 主键规则 auto:通常是数据库自增
+      # none:不自动填充，需手动指定
+      # input:用户输入主键值
+      # assign_id:分布式数字型雪花算法生成主键
+      # assign_uuid 使用UUID（通常是字符串类型的UUID）作为主键
+      # assign_str 自定义字符串类型主键生成策略。需要用户手动指定主键值。
+      id-type: auto
+      # 插入时 只有非空字段会被插入，空字段将被忽略
+      insert-strategy: not_null
+      # 更新时 只有非空字段会被更新，空字段将被忽略
+      update-strategy: not_null
+      # 查询时 只有非空字段会被用作查询条件，空字段将被忽略
+      where-strategy: not_null
+      # 表名下划线映射
+      table-underline: true
+      # 逻辑删除 已删除默认置1
+      logic-delete-value: 1
+      # 逻辑删除 未删除默认置0
+      logic-not-delete-value: 0

@@ -1,0 +1,16 @@
+springfox:
+  documentation:
+    enabled: true
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+knife4j:
+  enable: true
+  basic:
+    enable: true
+    username: admin
+    password: admin
+  setting:
+    language: zh-CN

@@ -1,0 +1,6 @@
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter-data-redis'
+    api 'org.springframework.boot:spring-boot-starter-cache'
+    api 'org.redisson:redisson'
+    api project(':core:starter-base')
+}

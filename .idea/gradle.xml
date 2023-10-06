@@ -4,21 +4,33 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="delegatedBuild" value="true" />
-        <option name="testRunner" value="GRADLE" />
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:/Environment/gradle8.3" />
+        <option name="gradleHome" value="D:/environment/gradle-8.3" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/out" />
             <option value="$PROJECT_DIR$/common/src" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/starter-auth" />
+            <option value="$PROJECT_DIR$/core/starter-base" />
+            <option value="$PROJECT_DIR$/core/starter-log" />
             <option value="$PROJECT_DIR$/core/starter-mybatis" />
+            <option value="$PROJECT_DIR$/core/starter-redis" />
             <option value="$PROJECT_DIR$/core/starter-web" />
-            <option value="$PROJECT_DIR$/core/stater-redis" />
+            <option value="$PROJECT_DIR$/demo" />
+            <option value="$PROJECT_DIR$/demo-api" />
+            <option value="$PROJECT_DIR$/demo-api/out" />
+            <option value="$PROJECT_DIR$/demo-api/src" />
+            <option value="$PROJECT_DIR$/demo/out" />
+            <option value="$PROJECT_DIR$/demo/src" />
+            <option value="$PROJECT_DIR$/ext" />
+            <option value="$PROJECT_DIR$/ext/swagger" />
           </set>
         </option>
       </GradleProjectSettings>

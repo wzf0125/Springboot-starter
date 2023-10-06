@@ -1,11 +1,12 @@
 rootProject.name = 'starter'
 
-def moduleList = ['common','core']
+def moduleList = ['common', 'core', 'ext', 'demo', 'demo-api']
 moduleList.forEach { module ->
-  {
-    include module
-    file("${rootDir}/" + module).eachDirMatch(~/.*/) {
-      include module + ":${it.name}"
+    {
+        include module
+        file("${rootDir}/" + module).eachDirMatch(~/.*/) {
+            include module + ":${it.name}"
+        }
     }
-  }
 }
+

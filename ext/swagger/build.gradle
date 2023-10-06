@@ -1,0 +1,6 @@
+dependencies {
+    api project(":core:starter-web")
+    api 'io.springfox:springfox-boot-starter'
+    api 'io.springfox:springfox-swagger-ui'
+    api 'com.github.xiaoymin:knife4j-spring-boot-starter'
+}
