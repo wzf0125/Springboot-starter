@@ -43,6 +43,8 @@ public class SwaggerConfig extends DelegatingWebMvcConfiguration{
                 .select()
                 //以下拦截配置可以三选一，根据需要进行添加
                 .apis(RequestHandlerSelectors.basePackage("org.quanta"))
+//                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+//                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
         return build;

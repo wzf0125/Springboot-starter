@@ -45,9 +45,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .order(Ordered.LOWEST_PRECEDENCE);
     }
 
+    /**
+     * 添加资源路径映射策略
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        for (WebMvcConfigProperties.ResourceHandler resourceHandler : webMvcConfigProperties.getResourceHandlers()) {
+            registry.addResourceHandler(resourceHandler.getHandlerPaths().toArray(new String[0]))
+                    .addResourceLocations(resourceHandler.getResourceLocations().toArray(new String[0]));
+        }
     }
 }

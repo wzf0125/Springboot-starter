@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/demo?&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/demo?&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: root
   redis:
@@ -32,3 +32,13 @@ quanta:
       - /doc.html
     interceptor-path: # 拦截路径
       - /**
+    # swagger配置 需要放行以下静态资源路径才能访问到页面
+    resource-handlers:
+      - handler-paths:
+          - /doc.html
+        resource-locations:
+          - classpath:/META-INF/resources/
+      - handler-paths:
+          - /webjars/**
+        resource-locations:
+          - classpath:/META-INF/resources/webjars/

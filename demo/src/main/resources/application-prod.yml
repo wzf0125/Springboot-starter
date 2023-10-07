@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo?&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: 123456
+
+# 自定义配置
+quanta:
+  system:
+    # debug模式接口会返回异常信息 否则返回服务器内部错误
+    debug: true
+  # 请求-响应日志切面等级
+  log:
+    level: 1 # 默认为1 ALL(request + response)
+  web: # web配置
+    exclude-path: # 放行路径
+      - /user/login
+      - /user/register
+    interceptor-path: # 拦截路径
+      - /**

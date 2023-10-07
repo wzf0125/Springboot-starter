@@ -1,10 +1,4 @@
-// 定义模块列表
-ext {
-    pomporject = Arrays.asList(project(":core")).toSet()
-    jLibPorjects = Arrays.asList(project(":core").subprojects)
-    bootPorjects = subprojects - pomporject - jLibPorjects
-}
-// 全局配置
+// 构建配置
 buildscript {
     repositories {
         maven {
@@ -16,7 +10,7 @@ buildscript {
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:' + VERSION_SPRINGBOOT
         classpath 'io.spring.gradle:dependency-management-plugin:' + VERSION_SPRING_PLUGIN
-        classpath 'io.freefair.gradle:lombok-plugin:6.5.0'
+        classpath 'io.freefair.gradle:lombok-plugin:'+VERSION_LOMBOK_PLUGIN
     }
 
 }
@@ -61,6 +55,11 @@ allprojects {
             dependency 'com.github.xiaoymin:knife4j-spring-boot-starter:3.0.3'
         }
     }
+
+    // 是否打包成jar包 默认不打包 需要打包的模块在模块中的build.gradle中覆盖此配置
+    bootJar {
+        enabled = false
+    }
 }
 
 // 子模块依赖
@@ -75,6 +74,7 @@ subprojects {
     }
 }
 
+// 设置gradle编码
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
 }

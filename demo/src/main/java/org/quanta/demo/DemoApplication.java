@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Date: 2023/10/5
  */
 @SpringBootApplication(scanBasePackages = "org.quanta")
-public class Application {
+public class DemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 }

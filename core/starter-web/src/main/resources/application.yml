@@ -11,5 +11,10 @@ quanta:
 #      - /webjars/** # swagger面板
     interceptor-path:
       - /**
+    resource-handlers:
+      - handler-paths:
+          - /static/**
+        resource-locations:
+          - file':'D:/static
   system:
     debug: false
