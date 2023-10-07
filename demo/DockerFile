@@ -1,0 +1,8 @@
+FROM openjdk:11-jre-slim
+RUN apk add tzdata
+ENV TZ Asia/Shanghai
+RUN find demo/build/libs -type f -name '*-plain.jar' -exec rm -f {} \;
+COPY demo/build/libs/*.jar DEMO.JAR
+EXPOSE 8080
+VOLUME ["/opt/log"]
+ENTRYPOINT ["java","-jar","DEMO.JAR"]
