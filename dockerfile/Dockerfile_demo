@@ -2,8 +2,7 @@ FROM openjdk:11-jre-slim
 ENV TZ Asia/Shanghai
 RUN pwd
 RUN ls -al
-RUN find /demo/build/libs -type f -name '*-plain.jar' -exec rm -f {} \;
-COPY /demo/build/libs/*.jar DEMO.JAR
+COPY demo/build/libs/*.jar DEMO.JAR
 EXPOSE 8080
 VOLUME ["/opt/log"]
 ENTRYPOINT ["java","-jar","DEMO.JAR"]
