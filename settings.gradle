@@ -9,5 +9,3 @@ moduleList.forEach { module ->
         }
     }
 }
-include 'test'
-

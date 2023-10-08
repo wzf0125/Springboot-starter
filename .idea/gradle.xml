@@ -34,7 +34,6 @@
             <option value="$PROJECT_DIR$/demo/src" />
             <option value="$PROJECT_DIR$/ext" />
             <option value="$PROJECT_DIR$/ext/swagger" />
-            <option value="$PROJECT_DIR$/test" />
           </set>
         </option>
       </GradleProjectSettings>
