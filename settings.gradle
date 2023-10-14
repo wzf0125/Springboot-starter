@@ -9,3 +9,6 @@ moduleList.forEach { module ->
         }
     }
 }
+include 'ext:mail'
+findProject(':ext:mail')?.name = 'mail'
+

@@ -1,4 +1,5 @@
 dependencies {
     api project(":common")
     api project(":ext:swagger")
+    api project(":ext:mail")
 }

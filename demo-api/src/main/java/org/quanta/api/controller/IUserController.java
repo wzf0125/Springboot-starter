@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = "用户模块", value = "用户模块")
 @RequestMapping("/user")
-@RestController
 public interface IUserController {
     /**
      * 登录并获取token

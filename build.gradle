@@ -1,3 +1,27 @@
+ext {
+    // 所有项目模块
+    allProjectList = Arrays.asList(
+            project(":core"),
+            project(":ext"),
+            project(":common"),
+            project("demo"),
+            project("demo-api")
+    ).toSet()
+    allProjectList.addAll(project(":core").subprojects)
+    allProjectList.addAll(project(":ext").subprojects)
+
+    // 空父工程
+    pomProjectList = Arrays.asList(
+            project(":core"),
+            project(":ext")
+    )
+
+    // 需要打包的模块
+    packageProjcetList = Arrays.asList(
+            project(":demo")
+    )
+}
+
 // 构建配置
 buildscript {
     repositories {
@@ -10,7 +34,7 @@ buildscript {
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:' + VERSION_SPRINGBOOT
         classpath 'io.spring.gradle:dependency-management-plugin:' + VERSION_SPRING_PLUGIN
-        classpath 'io.freefair.gradle:lombok-plugin:'+VERSION_LOMBOK_PLUGIN
+        classpath 'io.freefair.gradle:lombok-plugin:' + VERSION_LOMBOK_PLUGIN
     }
 
 }
@@ -18,9 +42,7 @@ buildscript {
 // 所有项目配置
 allprojects {
     //gradle插件
-    apply plugin: 'idea'
     apply plugin: 'org.springframework.boot'
-    apply plugin: 'java-library'
     apply from: "${rootDir}/spring.gradle"
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'io.freefair.lombok'
@@ -55,15 +77,12 @@ allprojects {
             dependency 'com.github.xiaoymin:knife4j-spring-boot-starter:3.0.3'
         }
     }
-
-    // 是否打包成jar包 默认不打包 需要打包的模块在模块中的build.gradle中覆盖此配置
-    bootJar {
-        enabled = false
-    }
 }
 
-// 子模块依赖
-subprojects {
+// 仅对有代码编写的模块引入构建插件
+configure(allProjectList - pomProjectList) { project ->
+    apply plugin: 'java-library'
+
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'

@@ -1,5 +1,5 @@
 dependencies {
-    api 'cn.hutool:hutool-all'
+    api "cn.hutool:hutool-all"
     api project(":core:starter-web")
     api project(":core:starter-mybatis")
     api project(":core:starter-log")

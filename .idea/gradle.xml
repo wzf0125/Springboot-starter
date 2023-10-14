@@ -14,7 +14,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/common/build" />
             <option value="$PROJECT_DIR$/common/out" />
             <option value="$PROJECT_DIR$/common/src" />
             <option value="$PROJECT_DIR$/core" />
@@ -29,10 +28,11 @@
             <option value="$PROJECT_DIR$/demo-api/build" />
             <option value="$PROJECT_DIR$/demo-api/out" />
             <option value="$PROJECT_DIR$/demo-api/src" />
-            <option value="$PROJECT_DIR$/demo/build" />
             <option value="$PROJECT_DIR$/demo/out" />
             <option value="$PROJECT_DIR$/demo/src" />
             <option value="$PROJECT_DIR$/ext" />
+            <option value="$PROJECT_DIR$/ext/build" />
+            <option value="$PROJECT_DIR$/ext/mail" />
             <option value="$PROJECT_DIR$/ext/swagger" />
           </set>
         </option>

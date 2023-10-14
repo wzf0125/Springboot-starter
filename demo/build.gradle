@@ -1,7 +1,3 @@
 dependencies {
     api project(":demo-api")
 }
-
-bootJar {
-    enabled = true
-}
