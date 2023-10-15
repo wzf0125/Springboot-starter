@@ -73,11 +73,8 @@ public class MailUtils {
      * 判断是否需要发送附件
      */
     private boolean hasAttachment(Mail mail) {
-        if ((mail.getAttachment() != null && !mail.getAttachment().isEmpty()) ||
-                mail.getAttachmentUrl() != null && !mail.getAttachmentUrl().isEmpty()) {
-            return true;
-        }
-        return false;
+        return (mail.getAttachment() != null && !mail.getAttachment().isEmpty()) ||
+                mail.getAttachmentUrl() != null && !mail.getAttachmentUrl().isEmpty();
     }
 
 }
