@@ -1,0 +1,52 @@
+server:
+  port: 8001
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/pssa?&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+#    url: jdbc:mysql://127.0.0.1:3306/pssa?&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+#    test环境内网穿透地址: 120.25.103.178:3306
+#    test环境校园网地址: 192.168.137.193:3306
+    username: pssa_writer
+    password: pssa_writer
+  redis:
+    host: 127.0.0.1
+#    test环境内网穿透地址: 120.25.103.178:6379
+#    test环境校园网地址: 192.168.137.193:6379
+    port: 6379
+    database: 0
+    password: 1F0ClFY5xxo8duVB
+
+# 自定义配置
+quanta:
+  system:
+    # debug模式接口会返回异常信息 否则返回服务器内部错误
+    debug: true
+  # 请求-响应日志切面等级
+  log:
+    level: 1 # 默认为1 ALL(request + response)
+  web: # web配置
+    exclude-path: # 放行路径
+      - /user/login
+      - /user/register
+      # swagger3路径
+      - /swagger**/**
+      - /swagger-resources/**
+      - /webjars/**
+      - /v3/**
+      - /doc.html
+    interceptor-path: # 拦截路径
+      - /**
+    # swagger配置 需要放行以下静态资源路径才能访问到页面
+    resource-handlers:
+      - handler-paths:
+          - /doc.html
+        resource-locations:
+          - classpath:/META-INF/resources/
+      - handler-paths:
+          - /webjars/**
+        resource-locations:
+          - classpath:/META-INF/resources/webjars/

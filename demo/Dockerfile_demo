@@ -1,6 +1,0 @@
-FROM openjdk:11-jre-slim
-ENV TZ Asia/Shanghai
-COPY build/libs/*.jar DEMO.JAR
-EXPOSE 8080
-VOLUME ["/opt/log"]
-ENTRYPOINT ["java","-jar","DEMO.JAR"]

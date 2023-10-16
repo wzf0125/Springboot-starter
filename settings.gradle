@@ -1,6 +1,6 @@
 rootProject.name = 'starter'
 
-def moduleList = ['common', 'core', 'ext', 'demo', 'demo-api']
+def moduleList = ['common', 'core', 'ext', 'pssa']
 moduleList.forEach { module ->
     {
         include module

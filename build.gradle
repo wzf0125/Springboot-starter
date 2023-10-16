@@ -4,8 +4,7 @@ ext {
             project(":core"),
             project(":ext"),
             project(":common"),
-            project("demo"),
-            project("demo-api")
+            project(":pssa")
     ).toSet()
     allProjectList.addAll(project(":core").subprojects)
     allProjectList.addAll(project(":ext").subprojects)
@@ -18,7 +17,7 @@ ext {
 
     // 需要打包的模块
     packageProjcetList = Arrays.asList(
-            project(":demo")
+            project(":pssa")
     )
 }
 
