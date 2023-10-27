@@ -42,7 +42,6 @@ buildscript {
 // 所有项目配置
 allprojects {
     //gradle插件
-    apply plugin: 'org.springframework.boot'
     apply from: "${rootDir}/spring.gradle"
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'io.freefair.lombok'
@@ -91,6 +90,11 @@ configure(allProjectList - pomProjectList) { project ->
     dependencies {
         api 'org.projectlombok:lombok'
     }
+}
+
+// 对需要打包成jar包的项目引入构建依赖
+configure(packageProjcetList) {
+    apply plugin: 'org.springframework.boot'
 }
 
 // 设置gradle编码
