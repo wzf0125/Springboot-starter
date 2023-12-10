@@ -61,7 +61,7 @@ public class TokenUtils {
      * @param key token
      * @return uid和role的map
      */
-    private HashMap<String, Object> retrieveToken(String key) {
+    public HashMap<String, Object> retrieveToken(String key) {
         return redisUtils.get(key);
     }
 

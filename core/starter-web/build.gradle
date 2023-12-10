@@ -1,4 +1,3 @@
 dependencies {
     api project(':core:starter-base')
-    api project(':core:starter-auth')
 }

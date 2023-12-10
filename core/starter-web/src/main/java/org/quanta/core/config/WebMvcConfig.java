@@ -2,7 +2,7 @@ package org.quanta.core.config;
 
 import lombok.RequiredArgsConstructor;
 import org.quanta.core.beans.WebMvcConfigProperties;
-import org.quanta.core.interceptor.AuthInterceptor;
+import org.quanta.core.interceptor.IAuthInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @RequiredArgsConstructor
 public class WebMvcConfig implements WebMvcConfigurer {
     private final WebMvcConfigProperties webMvcConfigProperties;
-    private final AuthInterceptor authInterceptor;
+    private final IAuthInterceptor authInterceptor;
 
     /**
      * 解决跨域问题

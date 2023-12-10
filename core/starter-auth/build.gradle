@@ -1,4 +1,5 @@
 dependencies {
     api project(":core:starter-base")
     api project(":core:starter-redis")
+    api project(":core:starter-web")
 }

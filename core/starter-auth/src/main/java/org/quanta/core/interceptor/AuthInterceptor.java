@@ -10,10 +10,10 @@ import org.quanta.core.constants.Role;
 import org.quanta.core.utils.TokenUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 /**
  * Description: 认证拦截器
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class AuthInterceptor implements HandlerInterceptor {
+public class AuthInterceptor implements IAuthInterceptor {
     private final TokenUtils tokenUtils;
 
     @Override
@@ -38,36 +38,36 @@ public class AuthInterceptor implements HandlerInterceptor {
         // 设置响应头编码
         response.setCharacterEncoding("UTF-8");
         // 无token参数拒绝，放通的接口除外
-        if (request.getHeader(AuthConstants.TOKEN_HEADER) == null || request.getHeader(AuthConstants.TOKEN_HEADER).isEmpty()) {
+        if (request.getHeader(AuthConstants.TOKEN_KEY) == null || request.getHeader(AuthConstants.TOKEN_KEY).isEmpty()) {
             log.debug("");
             response.getWriter().write(JacksonUtils.toJsonStr(Response.unauthorized("缺少token参数")));
             return false;
         }
+
         // 提取请求头token
-        String token = request.getHeader(AuthConstants.TOKEN_HEADER);
-        if (token == null) {
-            response.getWriter().write(JacksonUtils.toJsonStr(Response.unauthorized()));
-        }
-        int roleCode;
-        try {
-            roleCode = tokenUtils.getTokenRole(token);
-        } catch (Exception e) {
-            response.getWriter().write(JacksonUtils.toJsonStr(Response.unauthorized(e.getMessage())));
+        String token = request.getHeader(AuthConstants.TOKEN_KEY).substring(7);
+
+        HashMap<String, Object> userInfo = tokenUtils.retrieveToken(token);
+        if (userInfo == null || userInfo.get("uid") == null || userInfo.get("role") == null) {
+            // 登陆过期
+            response.getWriter().write(JacksonUtils.toJsonStr(Response.loginExpire("登录过期")));
             return false;
         }
-        Role role = Role.codeOf(roleCode);
-        if (this.hasPermission(handler, role)) {
-            long uid = tokenUtils.getTokenUid(token);
-            // 刷新token
-            tokenUtils.refreshToken(token, uid, role);
-            // 权限塞request里传给controller
-            request.setAttribute("uid", uid);
-            request.setAttribute("role", role);
-            return true;
+        int uid = (int) userInfo.get("uid");
+        int role = (int) userInfo.get("role");
+        Role roleEnum = Role.codeOf(role);
+        if (!hasPermission(handler, roleEnum)) {
+            // 没通过权限验证 返回权限不足
+            response.getWriter().write(JacksonUtils.toJsonStr(Response.permissionDenied()));
+            return false;
         }
-        // 没通过权限验证 返回权限不足
-        response.getWriter().write(JacksonUtils.toJsonStr(Response.permissionDenied()));
-        return false;
+
+        // 刷新token
+        tokenUtils.refreshToken(token, uid, roleEnum);
+        // 权限塞request里传给controller
+        request.setAttribute("uid", uid);
+        request.setAttribute("role", role);
+        return true;
     }
 
     /**

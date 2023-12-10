@@ -98,6 +98,13 @@ public class Response<T> {
     }
 
     /**
+     * 登陆过期
+     */
+    public static <T> Response<T> loginExpire(String msg) {
+        return new Response<>(ResultCode.UNAUTHORIZED.getCode(), msg);
+    }
+
+    /**
      * 参数错误
      */
     public static <T> Response<T> paramError() {

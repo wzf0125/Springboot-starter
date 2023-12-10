@@ -12,7 +12,6 @@ import org.quanta.core.annotations.Log;
 import org.quanta.core.beans.LogProperties;
 import org.quanta.core.constants.LogLevel;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -28,7 +27,6 @@ import java.util.UUID;
 @Slf4j
 @Aspect
 @Component
-@ControllerAdvice
 @RequiredArgsConstructor
 public class LogAspect {
     private final LogProperties logProperties;
@@ -83,7 +81,7 @@ public class LogAspect {
         long uid = 0L;
         String token = null;
         if (attributes != null) {
-            token = attributes.getRequest().getHeader(AuthConstants.TOKEN_HEADER);
+            token = attributes.getRequest().getHeader(AuthConstants.TOKEN_KEY);
             try {
                 uid = (long) attributes.getRequest().getAttribute("uid");
             } catch (Exception ignored) {

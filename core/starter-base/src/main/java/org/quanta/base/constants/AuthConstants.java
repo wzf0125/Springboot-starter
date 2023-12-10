@@ -6,5 +6,7 @@ package org.quanta.base.constants;
  * Date: 2023/10/5
  */
 public interface AuthConstants {
-    String TOKEN_HEADER = "Authorization";
+    String TOKEN_KEY = "Authorization";
+
+    String TOKEN_PREFIX = "Bearer ";
 }

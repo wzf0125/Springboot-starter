@@ -25,13 +25,11 @@
             <option value="$PROJECT_DIR$/core/starter-web" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/demo-api" />
-            <option value="$PROJECT_DIR$/demo-api/build" />
             <option value="$PROJECT_DIR$/demo-api/out" />
             <option value="$PROJECT_DIR$/demo-api/src" />
             <option value="$PROJECT_DIR$/demo/out" />
             <option value="$PROJECT_DIR$/demo/src" />
             <option value="$PROJECT_DIR$/ext" />
-            <option value="$PROJECT_DIR$/ext/build" />
             <option value="$PROJECT_DIR$/ext/mail" />
             <option value="$PROJECT_DIR$/ext/swagger" />
           </set>
