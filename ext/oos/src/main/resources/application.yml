@@ -1,0 +1,15 @@
+quanta:
+  tencent:
+    cos:
+      secret-id:
+      secret-key:
+      bucket-name:
+      url-prefix:
+      region:
+  aliyun:
+    oss:
+      secret-id:
+      secret-key:
+      bucket-name:
+      url-prefix:
+      end-point:

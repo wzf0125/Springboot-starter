@@ -10,9 +10,10 @@
 
 对单体脚手架进行模块拆分，代码封装，配置抽取，使用gradle替换maven
 
+将各核心功能配置(mybatis-plus,redis,spring-web等)拆分成独立模块，归属于核心core模块下，将拓展功能提取到ext模块下，以实现代码分离解耦的目的，
+简化业务功能的代码和配置。
+
 原脚手架地址: https://github.com/wzf0125/springboot-archetype
-
-
 
 >   脚手架模块依赖关系
 
@@ -50,6 +51,10 @@
     - [x] swagger配置
   - [x] mail邮件模块
   - [ ] 对象存储模块
+    - [X] 腾讯云COS
+    - [X] 阿里云OOS
+    - [ ] 亚马逊云AWS
+    - [ ] minio
 - `Demo`业务模块
   - 功能测试
     - [x] 认证功能测试

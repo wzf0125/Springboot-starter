@@ -1,4 +1,4 @@
-package org.quanta.core.beans;
+package org.quanta.base.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

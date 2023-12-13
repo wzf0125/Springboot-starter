@@ -16,7 +16,7 @@ public enum ResultCode {
     FAIL(400, "操作失败"),
     PERMISSION_DENIED(401, "权限不足"),
     PARAM_ERROR(402, "参数错误"),
-    UNAUTHORIZED(403, "请先登录"),
+    UNAUTHORIZED(403, "未认证"),
     SERVER_ERROR(500, "服务器内部错误");
     Integer code;
     String msg;
